@@ -2,10 +2,8 @@ package com.br.desafio.itau.controller;
 
 import com.br.desafio.itau.dto.TransacaoRequest;
 import com.br.desafio.itau.service.TransacaoService;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RequestMapping("/transacao")
 @RestController
@@ -18,6 +16,7 @@ public class TransacaoController {
     }
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     public void salvar(@RequestBody TransacaoRequest request){
         service.salvar(request);
     }
